@@ -35,6 +35,12 @@ a {
 }
 
 .app-panel {
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+}
+.panel-left , .panel-right{
+    margin:20px;
 }
 
 .map-panel {
@@ -191,4 +197,9 @@ form > .form-field {
     transform: scale(1.1);
 }
 
+@media screen and (max-width: 900px) {
+    .app-panel {
+        flex-flow: column;
+    }
 
+}

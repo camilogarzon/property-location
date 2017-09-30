@@ -68,6 +68,14 @@
                         </div>
                     </div>
                     <div class="form-field">
+                        <div class="label">Country:</div>
+                        <div class="form-input">
+                            <select v-model="currentProperty.countryId">
+                                <option v-for="country in countries" :value="country.id">{{ country.shortName }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-field">
                         <div class="label">Latitude:</div>
                         <div class="form-input" v-bind:class="{ 'field-error': $v.currentProperty.latitude.$error }">
                             <input type="text" v-model.trim="currentProperty.latitude">
@@ -93,58 +101,63 @@
 
         <div class="app-panel">
 
-            <div><h1>Property Locations</h1></div>
-            <div>
-                <p>To <b>add</b> a property, do right click on the <b>map</b>.</p>
-                <p>To <b>edit</b> a property, do right click on the <span style="color:#f75c52;">red marker</span> .</p>
-            </div>
-            <gmap-map class="map-panel"
-                      :options="{ scrollwheel: scrollwheel}" :center="center" :zoom="zoom" :map-type-id="mapType"
-                      @rightclick="mapRightClick"
-                      @zoom_changed="update('zoom', $event)"
-                      @center_changed="update('reportedCenter', $event)"
-                      @maptypeid_changed="update('mapType', $event)"
-                      @bounds_changed="update('bounds', $event)">
-                <gmap-info-window :opened="infoWinOpen" :options="infoOptions" :position="infoWindowPos"
-                                  @closeclick="closeInfoWindow()">
-                    <div style="text-align: left">
-                        <p><b>Name:</b> {{ infoMarker.propertyName }}</p>
-                    </div>
-                </gmap-info-window>
-                <gmap-cluster :grid-size="gridSize" v-if="clustering">
-                    <gmap-marker :key="m.id" :clickable="true" :position="m.position" :opacity="m.opacity"
-                                 :draggable="m.draggable"
-                                 v-if="m.enabled" v-for="m in activeMarkers"
-                                 @click="toggleInfoWindow(m)" @rightclick="modalEditProperty(m.property)">
-                    </gmap-marker>
-                </gmap-cluster>
-            </gmap-map>
+            <div class="panel-left">
 
-            <div class="data-table">
-                <table class="table">
-                    <tr class="row">
-                        <th>ID</th>
-                        <th><a class="link-name" @click="sortProperties">Name</a></th>
-                        <th>Address</th>
-                        <th>Market</th>
-                        <th>Latitude</th>
-                        <th>Longitude</th>
-                        <th>Actions</th>
-                    </tr>
-                    <tr v-for="p in properties" class="row">
-                        <td>{{ p.id }}</td>
-                        <td><a class="link-name" @click="modalEditProperty(p)">{{ p.name }}</a></td>
-                        <td>{{ p.address1 }}</td>
-                        <td>{{ p.marketName }}</td>
-                        <td>{{ p.latitude }}</td>
-                        <td>{{ p.longitude }}</td>
-                        <td>
-                            <button class="btn btn-edit" @click="modalEditProperty(p)">EDIT</button>
-                        </td>
-                    </tr>
-                </table>
+                <div><h1>Property Locations</h1></div>
+                <div>
+                    <p>To <b>add</b> a property, do right click on the <b>map</b>.</p>
+                    <p>To <b>edit</b> a property, do right click on the <span style="color:#f75c52;">red marker</span> .</p>
+                </div>
+            </div>
+            <div class="panel-right">
+                <gmap-map class="map-panel"
+                          :options="{ scrollwheel: scrollwheel}" :center="center" :zoom="zoom" :map-type-id="mapType"
+                          @rightclick="mapRightClick"
+                          @zoom_changed="update('zoom', $event)"
+                          @center_changed="update('reportedCenter', $event)"
+                          @maptypeid_changed="update('mapType', $event)"
+                          @bounds_changed="update('bounds', $event)">
+                    <gmap-info-window :opened="infoWinOpen" :options="infoOptions" :position="infoWindowPos"
+                                      @closeclick="closeInfoWindow()">
+                        <div style="text-align: left">
+                            <p><b>Name:</b> {{ infoMarker.propertyName }}</p>
+                        </div>
+                    </gmap-info-window>
+                    <gmap-cluster :grid-size="gridSize" v-if="clustering">
+                        <gmap-marker :key="m.id" :clickable="true" :position="m.position" :opacity="m.opacity"
+                                     :draggable="m.draggable"
+                                     v-if="m.enabled" v-for="m in activeMarkers"
+                                     @click="toggleInfoWindow(m)" @rightclick="modalEditProperty(m.property)">
+                        </gmap-marker>
+                    </gmap-cluster>
+                </gmap-map>
             </div>
 
+        </div>
+
+        <div class="data-table">
+            <table class="table">
+                <tr class="row">
+                    <th>ID</th>
+                    <th><a class="link-name" @click="sortProperties">Name</a></th>
+                    <th>Address</th>
+                    <th>Market</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Actions</th>
+                </tr>
+                <tr v-for="p in properties" class="row">
+                    <td>{{ p.id }}</td>
+                    <td><a class="link-name" @click="modalEditProperty(p)">{{ p.name }}</a></td>
+                    <td>{{ p.address1 }}</td>
+                    <td>{{ p.marketName }}</td>
+                    <td>{{ p.latitude }}</td>
+                    <td>{{ p.longitude }}</td>
+                    <td>
+                        <button class="btn btn-edit" @click="modalEditProperty(p)">EDIT</button>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 

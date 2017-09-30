@@ -9,6 +9,7 @@ export default {
             form:{ show:false, title:'' },
             properties: [],
             markets: [],
+            countries: [],
             lastId: 1,
             center: { lat: 40.7430775, lng: -73.9840752 },
             reportedCenter: { lat: 40.7430775, lng: -73.9840752 },
@@ -56,6 +57,12 @@ export default {
         }
     },
     mounted: function () {
+        let self = this;
+        api.getCountries()
+            .then(function (countries) {
+                self.countries = countries;
+            });
+
         this.loadData();
     },
 
@@ -104,7 +111,7 @@ export default {
                         self.mapAddMarker(property);
                     });
                     self.markets = api.markets;
-                })
+                });
         },
         mapAddMarker(property) {
             this.lastId++;
