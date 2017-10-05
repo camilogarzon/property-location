@@ -1,8 +1,12 @@
 import api from './api/index.js';
 import { required, numeric } from 'vuelidate/lib/validators'
+import InfoModal from './components/infoModal.vue'
+import PropertyModal from './components/propertyModal.vue'
+import PropertyTable from './components/propertyTable.vue'
 
 export default {
     name: 'app',
+    components:{ InfoModal, PropertyModal, PropertyTable },
     data () {
         return {
             currentProperty:{},
