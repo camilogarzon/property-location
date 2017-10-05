@@ -1,6 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
-//var ExtractTextPlugin = require("extract-text-webpack-plugin")
+var ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = {
   entry: './src/main.js',
@@ -21,9 +21,9 @@ module.exports = {
             //// other preprocessors should work out of the box, no loader config like this necessary.
             //'scss': 'vue-style-loader!css-loader!sass-loader',
             //'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
-          }
+          },
           // other vue-loader options go here
-          //extractCSS: true
+          extractCSS: true
         }
       },
       {
@@ -40,9 +40,9 @@ module.exports = {
       }
     ]
   },
-  //plugins: [
-  //  new ExtractTextPlugin("main.css")
-  //],
+  plugins: [
+    new ExtractTextPlugin("main.css")
+  ],
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
