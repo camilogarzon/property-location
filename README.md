@@ -15,7 +15,7 @@ $ cd /path/to/json-server-heroku
 ```
 2 . Install dependencies 
 ```sh
-$ node install
+$ npm install
 ```
 3 . Start the server
 ```sh
@@ -39,7 +39,7 @@ $ cd /path/to/property-location
 ```
 2 . Install dependencies 
 ```sh
-$ node install
+$ npm install
 ```
 3 . Start the server under dev mode
 ```sh
