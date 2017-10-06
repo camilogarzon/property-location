@@ -25,10 +25,5 @@
     </div>
 </template>
 
-<script>
-    export default {
-        props:{
-            properties: {type:Array, required:true}
-        }
-    }
-</script>
+<script src="./propertyTableImp.js"></script>
+<style lang="scss"> @import "../scss/components/_propertyTable.scss"; </style>

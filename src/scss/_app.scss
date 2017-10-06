@@ -1,3 +1,5 @@
+@import "_variables.scss";
+
 body {
   font-family: $app-font-family;
   -webkit-font-smoothing: antialiased;
@@ -24,22 +26,6 @@ a {
   color: $app-green;
 }
 
-.data-table {
-  margin: 20px;
-}
-
-.grid {
-  border-collapse: collapse;
-  width: 100%;
-
-  .row {
-    td, th {
-      border: 1px solid #999;
-      padding: 0.5rem;
-    }
-  }
-
-}
 
 .app-panel {
   display: flex;
@@ -69,109 +55,6 @@ gmap-map {
   display: block;
 }
 
-/********************************************/
-/**** START modal component ****/
-/********************************************/
-.modal-mask {
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .5);
-  display: table;
-  transition: opacity .3s ease;
-}
-
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.modal-container {
-  width: 500px;
-  margin: 0px auto;
-  padding: 20px 20px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-  transition: all .3s ease;
-}
-
-.modal-header {
-  h3 {
-    margin-top: 0;
-  }
-}
-
-.modal-body {
-  display: flex;
-}
-/********************************************/
-/**** END modal component ****/
-/********************************************/
-
-/********************************************/
-/**** START modal component > info lightbox ****/
-/********************************************/
-
-.modal-form {
-  margin: 0 auto;
-}
-.form-field {
-  display: flex;
-  flex-direction: row;
-  .label {
-    font-weight: bold;
-    margin-right: 10px;
-    text-align: right;
-    width: 100px;
-  }
-  form & {
-    height: 50px;
-  }
-}
-
-.form-input {
-  text-align: left;
-  width: 260px;
-  input, select {
-    width: 90%;
-  }
-
-}
-
-.form-actions {
-  margin-top: 20px;
-}
-
-/* error in form */
-.field-error {
-  input, select {
-    border-color: $error-color;
-    background: $error-bg;
-  }
-  span {
-    color: $error-color;
-    font-size: 0.7em;
-  }
-
-}
-
-.error {
-  border-color: $error-color;
-  background: $error-bg;
-  &:focus {
-    outline-color: $error-outline;
-  }
-}
-
-/********************************************/
-/**** END modal component > info lightbox****/
-/********************************************/
-
-
 .btn {
   border-top-color: transparent;
   border-left-color: transparent;
@@ -200,22 +83,6 @@ gmap-map {
 .btn-save, .btn-add {
   background-color: $btn-bg-green;
 }
-
-
-.link-name {
-  cursor: pointer;
-}
-
-.modal-enter,
-.modal-leave-active {
-  opacity: 0;
-  .modal-container {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-
-}
-
 
 @media screen {
   .app-panel {

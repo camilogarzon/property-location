@@ -1,0 +1,28 @@
+.modal-form {
+  margin: 0 auto;
+}
+.form-field {
+  display: flex;
+  flex-direction: row;
+  .label {
+    font-weight: bold;
+    margin-right: 10px;
+    text-align: right;
+    width: 100px;
+  }
+  form & {
+    height: 50px;
+  }
+}
+
+.form-input {
+  text-align: left;
+  width: 260px;
+  input, select {
+    width: 90%;
+  }
+}
+
+.form-actions {
+  margin-top: 20px;
+}

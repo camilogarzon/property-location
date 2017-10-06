@@ -1,0 +1,19 @@
+.data-table {
+  margin: 20px;
+}
+
+.grid {
+  border-collapse: collapse;
+  width: 100%;
+
+  .row {
+    td, th {
+      border: 1px solid #999;
+      padding: 0.5rem;
+    }
+  }
+}
+
+.link-name {
+  cursor: pointer;
+}

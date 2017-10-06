@@ -60,17 +60,5 @@
     </modal>
 </template>
 
-<script>
-    import Modal from './modal.vue'
-
-    export default {
-        props:{
-            form: {type:Object, required:true},
-            currentProperty: {type:Object, required:true},
-            validator: {type:Object, required:true},
-            markets: {type:Array, required:true},
-            countries: {type:Array, required:true}
-        },
-        components: { Modal }
-    }
-</script>
+<script src="./propertyModalImp.js"></script>
+<style lang="scss"> @import "../scss/components/_propertyModal.scss"; </style>

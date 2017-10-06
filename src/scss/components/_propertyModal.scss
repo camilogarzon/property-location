@@ -1,0 +1,21 @@
+@import "../_variables.scss";
+
+.field-error {
+  input, select {
+    border-color: $error-color;
+    background: $error-bg;
+  }
+  span {
+    color: $error-color;
+    font-size: 0.7em;
+  }
+
+}
+
+.error {
+  border-color: $error-color;
+  background: $error-bg;
+  &:focus {
+    outline-color: $error-outline;
+  }
+}

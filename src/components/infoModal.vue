@@ -21,14 +21,5 @@
     </modal>
 </template>
 
-<script>
-    import Modal from './modal.vue'
-
-    export default {
-        props:{
-            showModal: {type:Boolean, required:true},
-            infoMarker: {type:Object, required:true}
-        },
-        components: { Modal }
-    }
-</script>
+<script src="./infoModalImp.js"></script>
+<style lang="scss"> @import "../scss/components/_infoModal.scss"; </style>

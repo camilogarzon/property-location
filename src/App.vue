@@ -62,4 +62,4 @@
 </template>
 
 <script src="./appImp.js"></script>
-<style lang="scss"> @import "./scss/main.scss"; </style>
+<style lang="scss"> @import "./scss/_app.scss"; </style>
